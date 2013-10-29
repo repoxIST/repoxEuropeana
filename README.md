@@ -1,7 +1,4 @@
-repoxEuropeana
-==============
-
-#REPOX Europeana
+#REPOX Europeana SRC Code
 
 1 - To configure REPOX some parameters must be set on the "configurations.properties" file under "repox-core\src\main\resources":
 
