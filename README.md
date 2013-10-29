@@ -1,4 +1,4 @@
-#REPOX Europeana SRC Code
+#REPOX Europeana SRC Code - http://repox.ist.utl.pt/
 
 To configure REPOX some parameters must be set on the "configurations.properties" file under "repox-core\src\main\resources":
 
@@ -28,7 +28,7 @@ database.embeddedDriver true<br>
 database.url jdbc:derby:<br>
 database.create true<br>
 
-- Or if using a PostGres Database:
+- Or if using a PostgreSQL Database:
 database.driverClassName org.postgresql.Driver<br>
 database.url jdbc:postgresql://localhost/exampledb<br>
 database.user postgres<br>
