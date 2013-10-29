@@ -345,9 +345,4 @@ public class FileUtil {
         }
         return count;
     }
-    
-    public static void main(String arrgs[]){
-        System.out.println("number of files: " + countFilesInDirectory(new File("C:\\Users\\Gilberto Pedrosa\\Desktop\\BulDML_external")));
-                
-    }
 }

@@ -131,27 +131,5 @@ public class Iso2709TypeDetector {
 				return CharSet.HORIZON;
 			return CharSet.ISO8859_1;
 		}
-		
-		
-				
-		
-	}
-	
-	public static void main(String[] args) throws Exception{
-		if (args.length==0) {
-			System.out.println(detect(new File("C:\\Desktop\\1EclipsePrj\\nmafCore\\testISOS\\pb4.ISO")));
-			System.out.println(detect(new File("C:\\Desktop\\1EclipsePrj\\nmafCore\\testISOS\\pb4-2.ISO")));
-			System.out.println(detect(new File("C:\\Desktop\\1EclipsePrj\\nmafCore\\testISOS\\PB4-semQLinhas.iso")));
-			System.out.println(detect(new File("C:\\Desktop\\1EclipsePrj\\nmafCore\\testISOS\\cp850.iso")));
-			System.out.println(detect(new File("C:\\Desktop\\1EclipsePrj\\nmafCore\\testISOS\\horizon.ISO")));
-			System.out.println(detect(new File("C:\\Desktop\\1EclipsePrj\\nmafCore\\testISOS\\latin1.iso")));
-			System.out.println(detect(new File("C:\\Desktop\\1EclipsePrj\\nmafCore\\testISOS\\latin1-2.iso")));
-			System.out.println(detect(new File("C:\\Desktop\\1EclipsePrj\\nmafCore\\testISOS\\Aleph.iso")));
-			System.out.println(detect(new File("C:\\Desktop\\1EclipsePrj\\nmafCore\\testISOS\\ANACOM.iso")));
-			
-		}else {
-
-			System.out.println(detect(new File(args[0])));
-		}
 	}
 }

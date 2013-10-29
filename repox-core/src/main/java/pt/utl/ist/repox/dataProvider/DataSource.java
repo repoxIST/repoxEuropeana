@@ -1106,39 +1106,4 @@ public abstract class DataSource {
                 lastIngestDeletedCount++;
         }
     }
-
-    public static void main(String[] args)throws Exception{
-        /*VelocityEngine ve = new VelocityEngine();
-        ve.init();
-        Template t = ve.getTemplate( "src/main/resources/emailExitStatus.vm" );
-        VelocityContext context = new VelocityContext();
-        context.put("id", "44");
-        context.put("exitStatus","exitStatus.toString()");
-        StringWriter writer = new StringWriter();
-        t.merge( context, writer );
-        String message = writer.toString();
-        System.out.println(message);*/
-        try{
-
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            factory.setValidating(false);
-            factory.setNamespaceAware(true);
-
-            SchemaFactory schemaFactory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
-            factory.setSchema(schemaFactory.newSchema(new Source[] {new StreamSource("http://www.europeana.eu/schemas/ese/ESE-V3.3.xsd")}));
-
-            DocumentBuilder builder = factory.newDocumentBuilder();
-
-            Document document = builder.parse(new InputSource("C:\\Users\\GPedrosa\\Desktop\\testeValidate\\teste.xml"));
-
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        } catch (SAXException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
-
-    }
-
 }

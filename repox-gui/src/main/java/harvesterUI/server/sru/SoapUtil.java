@@ -30,20 +30,7 @@ import org.w3c.dom.Document;
  * @since 19 de Abr de 2013
  */
 public class SoapUtil {
-//    public static Document toDocument(SOAPMessage soapMsg) throws
-//                     ParserConfigurationException, SAXException, SOAPException, IOException {
-//         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//         soapMsg.writeTo(baos);
-//         ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
-// 
-//         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-//         dbf.setNamespaceAware(true);
-//         DocumentBuilder db = dbf.newDocumentBuilder();
-//         Document doc = db.parse(bais);
-//         return doc;
-//     }
-    
-    
+
     public static org.dom4j.Document toDom4jDocument(SOAPMessage soapMsg) throws
      SOAPException, IOException, DocumentException {
       ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -96,10 +83,7 @@ public class SoapUtil {
                  return null;
              return (SOAPElement)updateRequest.next();
          }
-     
-         public static void main(String[] args) throws Exception {
-             
-         }
+
 
         /**
          * @param recEl

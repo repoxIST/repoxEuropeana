@@ -190,17 +190,4 @@ public class XmlUtil {
             throw spe;
         }
     }
-
-
-    public static void main(String[] args) {
-        validateXmlFile("C:\\testeValidate\\test.xml",
-                "http://www.europeana.eu/schemas/ese/ESE-V3.4.xsd");
-        /*
-        System.out.println(
-                "<sfsdf>&nasdfij:);\""+((char)0x02)+"\'"
-        );
-        System.out.println(
-                removeInvalidXMLCharacters("<sfsdf>&nasdfij:);\""+((char)0x02)+"\'")
-        );*/
-    }
 }

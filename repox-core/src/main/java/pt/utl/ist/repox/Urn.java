@@ -137,15 +137,4 @@ public class Urn {
 	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
 	}
-
-	public static void main(String[] args) throws DocumentException, InvalidInputException, IOException {
-//		Urn urn = new Urn("urn:repox.ist.utl.pt:");
-//		Urn urn = new Urn("urn:repox.ist.utl.pt:a1");
-//		Urn urn = new Urn("urn:repox.ist.utl.pt:a1:ASD3");
-		Urn urn = new Urn("oai:repox.ist.utl.pt:a1:ASD3;2008-01-29;asdasd:234324");
-		System.out.println(urn.getDataSourceId());
-		System.out.println(urn.getRecordId());
-		System.out.println(urn.getTimestamp());
-
-	}
 }

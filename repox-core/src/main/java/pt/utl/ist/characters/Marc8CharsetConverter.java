@@ -232,31 +232,6 @@ public class Marc8CharsetConverter {
         doubleCharsNew[2][11]=getByte("0xFD");//
         doubleCharsNew[2][12]=getByte("0xDD");//
 
-//        doubleCharsOld[3]=new byte[11];
-//        doubleCharsNew[3]=new byte[11];
-//        doubleCharsOld[3][0]=getByte("0xC3"); 
-//        doubleCharsOld[3][1]=getByte("0x61");
-//        doubleCharsOld[3][2]=getByte("0x41");
-//        doubleCharsOld[3][3]=getByte("0x65");
-//        doubleCharsOld[3][4]=getByte("0x45");
-//        doubleCharsOld[3][5]=getByte("0x69");
-//        doubleCharsOld[3][6]=getByte("0x49");
-//        doubleCharsOld[3][7]=getByte("0x6F");
-//        doubleCharsOld[3][8]=getByte("0x4F");
-//        doubleCharsOld[3][9]=getByte("0x75");
-//        doubleCharsOld[3][10]=getByte("0x55");
-//        doubleCharsNew[3][0]=getByte("0x00");
-//        doubleCharsNew[3][1]=getByte("0xE2");//
-//        doubleCharsNew[3][2]=getByte("0xC2");//
-//        doubleCharsNew[3][3]=getByte("0xEA");//
-//        doubleCharsNew[3][4]=getByte("0xCA");//
-//        doubleCharsNew[3][5]=getByte("0xEE");//
-//        doubleCharsNew[3][6]=getByte("0xCE");//
-//        doubleCharsNew[3][7]=getByte("0xF4");//
-//        doubleCharsNew[3][8]=getByte("0xD4");//
-//        doubleCharsNew[3][9]=getByte("0xFB");//
-//        doubleCharsNew[3][10]=getByte("0xDB");//
-
         doubleCharsOld[3]=new byte[7];
         doubleCharsNew[3]=new byte[7];
         doubleCharsOld[3][0]=getByte("0xE4");
@@ -274,50 +249,6 @@ public class Marc8CharsetConverter {
         doubleCharsNew[3][5]=getByte("0xF1");//
         doubleCharsNew[3][6]=getByte("0xD1");//
 
-//        doubleCharsOld[5]=new byte[7];
-//        doubleCharsNew[5]=new byte[7];
-//        doubleCharsOld[5][0]=getByte("0xC9"); 
-//        doubleCharsOld[5][1]=getByte("0x61");
-//        doubleCharsOld[5][2]=getByte("0x41");
-//        doubleCharsOld[5][3]=getByte("0x6F");
-//        doubleCharsOld[5][4]=getByte("0x4F");
-//        doubleCharsOld[5][5]=getByte("0x6E");
-//        doubleCharsOld[5][6]=getByte("0x4E");
-//        doubleCharsNew[5][0]=getByte("0x00");
-//        doubleCharsNew[4][1]=getByte("0xE3");//
-//        doubleCharsNew[4][2]=getByte("0xC3");//
-//        doubleCharsNew[4][3]=getByte("0xF5");//
-//        doubleCharsNew[4][4]=getByte("0xD5");//
-//        doubleCharsNew[4][5]=getByte("0xF1");//
-//        doubleCharsNew[4][6]=getByte("0xD1");//
-//        
-//        doubleCharsOld[6]=new byte[12];
-//        doubleCharsNew[6]=new byte[12];
-//        doubleCharsOld[6][0]=getByte("0xC8"); 
-//        doubleCharsOld[6][1]=getByte("0x61");
-//        doubleCharsOld[6][2]=getByte("0x41");
-//        doubleCharsOld[6][3]=getByte("0x65");
-//        doubleCharsOld[6][4]=getByte("0x45");
-//        doubleCharsOld[6][5]=getByte("0x69");
-//        doubleCharsOld[6][6]=getByte("0x49");
-//        doubleCharsOld[6][7]=getByte("0x6F");
-//        doubleCharsOld[6][8]=getByte("0x4F");
-//        doubleCharsOld[6][9]=getByte("0x75");
-//        doubleCharsOld[6][10]=getByte("0x55");
-//        doubleCharsOld[6][11]=getByte("0x79");
-//        doubleCharsNew[6][0]=getByte("0x00");
-//        doubleCharsNew[6][1]=getByte("0xE4");//
-//        doubleCharsNew[6][2]=getByte("0xC4");//
-//        doubleCharsNew[6][3]=getByte("0xEB");//
-//        doubleCharsNew[6][4]=getByte("0xCB");//
-//        doubleCharsNew[6][5]=getByte("0xEF");//
-//        doubleCharsNew[6][6]=getByte("0xCF");//
-//        doubleCharsNew[6][7]=getByte("0xF6");//
-//        doubleCharsNew[6][8]=getByte("0xD6");//
-//        doubleCharsNew[6][9]=getByte("0xFC");//
-//        doubleCharsNew[6][10]=getByte("0xDC");//
-//        doubleCharsNew[6][11]=getByte("0xFF");//
-
         charsOld=new byte[4];
         charsNew=new byte[4];
         charsOld[0]=getByte("0xE7");//
@@ -329,69 +260,6 @@ public class Marc8CharsetConverter {
         charsOld[3]=getByte("0x89");//
         charsNew[3]=getByte("0x3E");//        
 
-
-
-//        charsOld[0]=getByte("0x88");//
-//        charsNew[0]=getByte("0x3C");//        
-//        charsOld[1]=getByte("0x89");//
-//        charsNew[1]=getByte("0x3E");//        
-//        charsOld[2]=getByte("0xB5");//
-//        charsNew[2]=getByte("0xBA");//
-//        charsOld[3]=getByte("0xA7");//
-//        charsNew[3]=getByte("0xBA");//
-//        charsOld[4]=getByte("0xA6");//
-//        charsNew[4]=getByte("0xAA");//
-//        charsOld[5]=getByte("0xB4");//
-//        charsNew[5]=getByte("0xAA");//
-//        charsOld[6]=getByte("0xAA");//
-//        charsNew[6]=getByte("0xAB");//
-//        charsOld[7]=getByte("0x00");//
-//        charsNew[7]=getByte("0x20");//
-//        charsOld[8]=getByte("0x01");//
-//        charsNew[8]=getByte("0x20");//
-//        charsOld[9]=getByte("0x02");//
-//        charsNew[9]=getByte("0x20");//
-//        charsOld[10]=getByte("0x03");//
-//        charsNew[10]=getByte("0x20");//
-//        charsOld[11]=getByte("0x04");//
-//        charsNew[11]=getByte("0x20");//
-//        charsOld[12]=getByte("0x05");//
-//        charsNew[12]=getByte("0x20");//
-//        charsOld[13]=getByte("0x06");//
-//        charsNew[13]=getByte("0x20");//
-//        charsOld[14]=getByte("0x07");//
-//        charsNew[14]=getByte("0x20");//
-//        charsOld[15]=getByte("0x08");//
-//        charsNew[15]=getByte("0x20");//
-//        charsOld[16]=getByte("0x09");//
-//        charsNew[16]=getByte("0x20");//
-//        charsOld[17]=getByte("0x10");//
-//        charsNew[17]=getByte("0x20");//
-//        charsOld[18]=getByte("0x11");//
-//        charsNew[18]=getByte("0x20");//
-//        charsOld[19]=getByte("0x12");//
-//        charsNew[19]=getByte("0x20");//
-//        charsOld[20]=getByte("0x13");//
-//        charsNew[20]=getByte("0x20");//
-//        charsOld[21]=getByte("0x14");//
-//        charsNew[21]=getByte("0x20");//
-//        charsOld[22]=getByte("0x15");//
-//        charsNew[22]=getByte("0x20");//
-//        charsOld[23]=getByte("0x16");//
-//        charsNew[23]=getByte("0x20");//
-//        charsOld[24]=getByte("0x17");//
-//        charsNew[24]=getByte("0x20");//
-//        charsOld[25]=getByte("0x18");//
-//        charsNew[25]=getByte("0x20");//
-//        charsOld[26]=getByte("0x19");//
-//        charsNew[26]=getByte("0x20");//
-//        charsOld[27]=getByte("0x1A");//
-//        charsNew[27]=getByte("0x20");//
-//        charsOld[28]=getByte("0x1B");//
-//        charsNew[28]=getByte("0x20");//
-//        charsOld[29]=getByte("0x1C");//
-//        charsNew[29]=getByte("0x20");//
-
         stringsOld=new String[2];
         stringsNew=new String[2];
         byte[] tmp=new byte[1];
@@ -402,32 +270,6 @@ public class Marc8CharsetConverter {
 
         //Atenção existem mais conversões no metodo convertString        
     }
-
-
-    /**************************************************************************
-     ************                    Main                    ******************
-     *************************************************************************/
-    public static void main(String[] args) {
-
-        HorizonConverter conv=new HorizonConverter();
-
-        System.out.println(System.getProperty("file.encoding"));
-        String original = new String("Direcção de Serviços");
-        System.out.println("original = " + original);
-        System.out.println();
-        original=new String(conv.convertBytes(original.getBytes()));
-        try {
-            byte[] utf8Bytes = original.getBytes("UTF8");
-
-            byte[] defaultBytes = original.getBytes();
-
-            String roundTrip = new String(utf8Bytes, "UTF8");
-            System.out.println("roundTrip = " + roundTrip);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-    } // main
 
 }
 

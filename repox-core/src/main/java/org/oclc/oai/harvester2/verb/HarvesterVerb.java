@@ -179,94 +179,6 @@ public abstract class HarvesterVerb {
         harvest(requestURL);
     }
 
-    /**
-     * Preforms the OAI request
-     *
-     * @param requestURL
-     * @throws IOException
-     * @throws ParserConfigurationException
-     * @throws SAXException
-     * @throws TransformerException
-     */
-    public void harvestOldOclcImplementation(String requestURL) throws IOException, ParserConfigurationException, SAXException, TransformerException {
-        this.requestURL = requestURL;
-        logger.debug("requestURL=" + requestURL);
-        InputStream in;
-        URL url = new URL(requestURL);
-        HttpURLConnection con;
-        int responseCode;
-        do {
-            con = (HttpURLConnection) url.openConnection();
-            con.setRequestProperty("User-Agent", "OAIHarvester/2.0");
-            con.setRequestProperty("Accept-Encoding", "compress, gzip, identify");
-            try {
-                responseCode = con.getResponseCode();
-                logger.debug("responseCode=" + responseCode);
-            }
-            catch (FileNotFoundException e) {
-                // assume it's a 503 response
-                logger.error(requestURL, e);
-                responseCode = HttpURLConnection.HTTP_UNAVAILABLE;
-            }
-
-            if(responseCode == HttpURLConnection.HTTP_UNAVAILABLE) {
-                long retrySeconds = con.getHeaderFieldInt("Retry-After", -1);
-                if(retrySeconds == -1) {
-                    long now = (new Date()).getTime();
-                    long retryDate = con.getHeaderFieldDate("Retry-After", now);
-                    retrySeconds = retryDate - now;
-                }
-                if(retrySeconds == 0) { // Apparently, it's a bad URL
-                    throw new FileNotFoundException("Bad URL?");
-                }
-                logger.warn("Server response: Retry-After=" + retrySeconds);
-                if(retrySeconds > 0) {
-                    try {
-                        Thread.sleep(retrySeconds * 1000);
-                    }
-                    catch (InterruptedException ex) {
-                        ex.printStackTrace();
-                    }
-                }
-            }
-        } while (responseCode == HttpURLConnection.HTTP_UNAVAILABLE);
-        String contentEncoding = con.getHeaderField("Content-Encoding");
-        logger.debug("contentEncoding=" + contentEncoding);
-        if("compress".equals(contentEncoding)) {
-            ZipInputStream zis = new ZipInputStream(con.getInputStream());
-            zis.getNextEntry();
-            in = zis;
-        } else if("gzip".equals(contentEncoding)) {
-            in = new GZIPInputStream(con.getInputStream());
-        } else if("deflate".equals(contentEncoding)) {
-            in = new InflaterInputStream(con.getInputStream());
-        } else {
-            in = con.getInputStream();
-        }
-
-        InputSource data = new InputSource(in);
-
-        Thread t = Thread.currentThread();
-        DocumentBuilder builder = (DocumentBuilder) builderMap.get(t);
-        if(builder == null) {
-            builder = factory.newDocumentBuilder();
-            builderMap.put(t, builder);
-        }
-        doc = builder.parse(data);
-
-        StringTokenizer tokenizer = new StringTokenizer(getSingleString("/*/@xsi:schemaLocation"), " ");
-        StringBuffer sb = new StringBuffer();
-        while (tokenizer.hasMoreTokens()) {
-            if(sb.length() > 0)
-                sb.append(" ");
-            sb.append(tokenizer.nextToken());
-        }
-        this.schemaLocation = sb.toString();
-    }
-
-
-
-
 
     /**
      * Preforms the OAI request, recovering from typical XML error
@@ -390,15 +302,6 @@ public abstract class HarvesterVerb {
      */
     public String getSingleString(String xpath) throws TransformerException {
         return getSingleString(getDocument(), xpath);
-        // return XPathAPI.eval(getDocument(), xpath, namespaceElement).str();
-        // String str = null;
-        // Node node = XPathAPI.selectSingleNode(getDocument(), xpath,
-        // namespaceElement);
-        // if (node != null) {
-        // XObject xObject = XPathAPI.eval(node, "string()");
-        // str = xObject.str();
-        // }
-        // return str;
     }
 
     public String getSingleString(Node node, String xpath) throws TransformerException {
@@ -418,21 +321,6 @@ public abstract class HarvesterVerb {
     }
 
     public String toString() {
-        // Element docEl = getDocument().getDocumentElement();
-        // return docEl.toString();
-        /*Source input = new DOMSource(getDocument());
-          StringWriter sw = new StringWriter();
-          Result output = new StreamResult(sw);
-          try {
-              Transformer idTransformer = xformFactory.newTransformer();
-              idTransformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
-              idTransformer.transform(input, output);
-              return sw.toString();
-          }
-          catch (TransformerException e) {
-              return e.getMessage();
-          }*/
-
         //Serialize DOM
         OutputFormat format    = new OutputFormat(doc);
         // as a String
@@ -446,95 +334,5 @@ public abstract class HarvesterVerb {
         // Display the XML
         return stringOut.toString();
 
-    }
-
-    public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException {
-        String requestURL = "https://databank.ora.ox.ac.uk/oaipmh?verb=ListRecords&resumptionToken=20121206_TKMGW4A_SWT3NHV";
-
-        //String requestURL = "http://bd2.inesc-id.pt:8080/repox2Eudml/OAIHandler?verb=ListRecords&resumptionToken=1354116062009:ELibM_external:eudml-article2:33753:37054::";
-        //String requestURL = "http://bd2.inesc-id.pt:8080/repox2Eudml/OAIHandler?verb=GetRecord&identifier=urn:eudml.eu:ELibM_external:05152756&metadataPrefix=eudml-article2";
-        //String requestURL = "C:/Users/Gilberto Pedrosa/Desktop/OAIHandler.xml";
-        //FileInputStream fis = new FileInputStream(requestURL);
-        //InputStream in = fis;
-        logger.debug("requestURL=" + requestURL);
-        DocumentBuilderFactory factory;
-        factory = DocumentBuilderFactory.newInstance();
-        factory.setNamespaceAware(true);
-        Thread t = Thread.currentThread();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        HashMap builderMap = new HashMap();
-        builderMap.put(t, builder);
-
-        InputStream in;
-
-        URL url = new URL(requestURL);
-        HttpURLConnection con;
-        int responseCode;
-        do {
-            con = (HttpURLConnection) url.openConnection();
-            con.setConnectTimeout(30000);
-            con.setReadTimeout(600000);
-
-            if(con.getAllowUserInteraction()){
-                con.setRequestProperty("User-Agent", "OAIHarvester/2.0");
-                con.setRequestProperty("Accept-Encoding", "compress, gzip, identify");
-            }
-            try {
-                responseCode = con.getResponseCode();
-                logger.debug("responseCode=" + responseCode);
-            }
-            catch (FileNotFoundException e) {
-                // assume it's a 503 response
-                logger.error(requestURL, e);
-                responseCode = HttpURLConnection.HTTP_UNAVAILABLE;
-            }
-
-            if(responseCode == HttpURLConnection.HTTP_UNAVAILABLE) {
-                long retrySeconds = con.getHeaderFieldInt("Retry-After", -1);
-                if(retrySeconds == -1) {
-                    long now = (new Date()).getTime();
-                    long retryDate = con.getHeaderFieldDate("Retry-After", now);
-                    retrySeconds = retryDate - now;
-                }
-                if(retrySeconds == 0) { // Apparently, it's a bad URL
-                    throw new FileNotFoundException("Bad URL?");
-                }
-                logger.warn("Server response: Retry-After=" + retrySeconds);
-                if(retrySeconds > 0) {
-                    try {
-                        Thread.sleep(retrySeconds * 1000);
-                    }
-                    catch (InterruptedException ex) {
-                        ex.printStackTrace();
-                    }
-                }
-            }
-        }
-
-        while (responseCode == HttpURLConnection.HTTP_UNAVAILABLE);
-        String contentEncoding = con.getHeaderField("Content-Encoding");
-        logger.debug("contentEncoding=" + contentEncoding);
-        if("compress".equals(contentEncoding)) {
-            ZipInputStream zis = new ZipInputStream(con.getInputStream());
-            zis.getNextEntry();
-            in = zis;
-        } else if("gzip".equals(contentEncoding)) {
-            in = new GZIPInputStream(con.getInputStream());
-        } else if("deflate".equals(contentEncoding)) {
-            in = new InflaterInputStream(con.getInputStream());
-        } else {
-            in = con.getInputStream();
-        }
-
-
-        byte[] inputBytes=IOUtils.toByteArray(in);
-        InputSource data = new InputSource(new ByteArrayInputStream(inputBytes));
-
-        String xmlString=new String(inputBytes, "UTF-8");
-        xmlString=XmlUtil.removeInvalidXMLCharacters(xmlString);
-
-        builder.parse(data);
-
-        System.out.println("data = " + data);
     }
 }

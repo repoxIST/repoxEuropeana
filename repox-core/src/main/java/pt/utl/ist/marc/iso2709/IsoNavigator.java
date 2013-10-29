@@ -189,9 +189,4 @@ public class IsoNavigator {
             return new Tuple<Integer,Integer>(0,0);
         }
     }
-    
-    
-    public static void main(String[] args) {
-    	System.err.println(IsoNavigator.countRecordsAndItemsInIso(new File("c:\\desktop\\teste.iso")));
-    }
 }

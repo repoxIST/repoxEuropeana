@@ -241,36 +241,4 @@ public class DomBuilder {
         }
         return root;
     }
-
-    public static void main(String[] args){
-        try{
-
-
-//            Document document = new org.apache.xerces.dom.DocumentImpl();
-//
-//            
-////            Document document = new gnu.xml.dom.DomDocument();
-//            Element element=  document.createElement("test");
-//            element.appendChild(document.createTextNode(new String(new byte[]{Short.decode("0xc3").byteValue(),Short.decode("0x81").byteValue()},"utf-8")+"Á"));
-//            document.appendChild(element);
-//            System.err.println(document.getFirstChild().getFirstChild().getNodeValue());
-//            
-//pt.utl.ist.characters.ByteInspector.printBytes(pt.utl.ist.util.DomUtil.domToString(document,true),"ISO8859_1");
-
-
-//            
-//            File f=new File("c:\\teste.xml");
-//            FileWriter w=new FileWriter(f);
-//            w.write(pt.utl.ist.util.DomUtil.domToString(document,true));
-//            w.close();
-
-//            System.err.println((record2XMLString(pt.utl.ist.marc.util.MarcUtil.createTestBibliographicRecord(new pt.utl.ist.marc.impl.MarcObjectFactoryImpl()))));
-
-//            System.out.println(new String(new byte[]{Short.decode("0xc3").byteValue(),Short.decode("0x81").byteValue()},"utf-8"));
-//             
-//            pt.utl.ist.characters.ByteInspector.printBytes(new byte[]{Short.decode("0xc3").byteValue(),Short.decode("0x81").byteValue()});
-        }catch(Throwable e){
-            e.printStackTrace();
-        }
-    }
 }

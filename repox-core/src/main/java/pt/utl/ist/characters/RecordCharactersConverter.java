@@ -69,8 +69,4 @@ public class RecordCharactersConverter {
         String newData=new String(str.getBytes("ISO8859_1"),encoding);
         return newData;
     }
-
-    public static void main(String[] args) throws Exception{
-        System.err.println(RecordCharactersConverter.convertString("Alfabetiza‡„o em l¡ngua","Cp850"));
-    }
 }

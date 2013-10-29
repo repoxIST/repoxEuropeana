@@ -102,18 +102,4 @@ public class TarGz {
         File tarFile = TarGz.unGzip(tarGzFile, tempDir);
         return TarGz.unTar(tarFile, tempDir);
     }
-
-    public static void main(String args[]) {
-         try{
-             File tarGzFile = new File("C:\\Users\\Gilberto Pedrosa\\Desktop\\teste\\GDZ_Band.tar.gz");
-             File tempDir = new File("C:\\Users\\Gilberto Pedrosa\\Desktop\\teste\\temp");
-             List<File> listFiles = unTarGz(tarGzFile, tempDir);
-
-             System.out.println("listFiles = " + listFiles);
-
-         }catch(Exception e){
-            e.printStackTrace();
-        }
-    }
-
 }

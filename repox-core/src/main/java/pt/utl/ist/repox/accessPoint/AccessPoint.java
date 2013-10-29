@@ -88,7 +88,6 @@ public abstract class AccessPoint {
 		}
 	}
 
-	//public abstract Collection<String> indexDomain(RecordNode record);
 	public boolean isIndexDeletedRecords() {
 		return indexDeletedRecords;
 	}

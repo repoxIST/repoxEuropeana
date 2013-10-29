@@ -104,18 +104,4 @@ public class RestUtils {
         }
         writeRestResponse(out, errorElement);
     }
-
-    public static void main(String[] args) throws UnsupportedEncodingException {
-        String[] stringArray = new String[]{"teste", "/asd\\esd:isd", "oai:louisdl.louislibraries.org:LHC/10"};
-        for (String currentString : stringArray) {
-            String encodedString = URLEncoder.encode(currentString, "UTF-8");
-            String decodedString = URLDecoder.decode(encodedString, "UTF-8");
-
-            log.debug("orginalString: " + currentString);
-            log.debug("encodedString: " + encodedString);
-            log.debug("decodedString: " + decodedString);
-        }
-
-
-    }
 }

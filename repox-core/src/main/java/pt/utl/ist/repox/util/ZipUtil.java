@@ -78,19 +78,8 @@ public class ZipUtil {
 		
 		return out.toByteArray();
 	}
-	
 
 	public static String unzip(byte[] zippedBytes, Charset charset) throws IOException {
 		return new String(unzip(zippedBytes), charset);
-	}
-	 
-	public static void main(String[] args) throws IOException {
-		String originalString = "Quero isto descomprimido com acentos";
-		
-		byte[] zippedValue = ZipUtil.zip(originalString, Charset.forName("ISO-8859-1"));
-		String unzippedValue = new String(ZipUtil.unzip(zippedValue));
-		
-		System.out.println("*   zipped: " + zippedValue);
-		System.out.println("* unzipped: " + unzippedValue);
 	}
 }

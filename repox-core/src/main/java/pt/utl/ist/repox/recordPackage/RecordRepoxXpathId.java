@@ -72,21 +72,4 @@ public class RecordRepoxXpathId implements RecordRepox {
 	public void deserialize(byte[] bytes) throws DocumentException, UnsupportedEncodingException {
 		dom = XmlUtil.getRootElement(bytes);
 	}
-
-	public static void main(String[] args) throws FileNotFoundException, DocumentException {
-		SAXReader reader = new SAXReader();
-		Element recordElement = reader.read(new FileInputStream("C:\\Users\\Gilberto Pedrosa\\Desktop\\teste.xml")).getRootElement();
-		System.out.println(recordElement.asXML());
-		String xPathString = "/europeana:record/dc:identifier[@identifier_type=\"URN\"] | /europeana:record/dc:identifier[@identifier_type=\"SIGN\"]";
-		XPath xPath = DocumentHelper.createXPath(xPathString);
-		TreeMap<String, String> namespaces = new TreeMap<String, String>();
-		namespaces.put("dc", "http://purl.org/dc/elements/1.1/");
-		namespaces.put("europeana", "http://www.europeana.eu/schemas/ese/");
-		xPath.setNamespaceURIs(namespaces);
-		RecordRepoxXpathId record = new RecordRepoxXpathId(recordElement, xPath);
-
-		log.info("record id = " + record.getId());
-		log.info("record1 nodes size = " + xPath.selectNodes(record.getDom()).size());
-	}
-
 }

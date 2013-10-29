@@ -213,11 +213,7 @@ public class ResponseTransformer {
         Element identifierElement = getFirstInternalElement(recordElement, "identifier");
         // Here we remove all the ":" because it's the char used for URN separation
         identifierElement.setText(identifierElement.getText().replaceAll(":", "_"));
-        String identifier = identifierElement.getText();
-        //      String datestamp = getInternalNode(currentNode, "datestamp").getTextContent();
-        //      String setSpec = getInternalNode(currentNode, "setSpec").getTextContent();
-
-        return identifier;
+        return identifierElement.getText();
     }
 
     private Element getFirstInternalElement(Element currentElement, String nodeName) {
@@ -228,35 +224,4 @@ public class ResponseTransformer {
 
         return null;
     }
-
-    public static void main(String[] args) throws Exception {
-
-        ConfigSingleton.setRepoxContextUtil(new RepoxContextUtilDefault());
-
-        Date fromDate = null;
-        Date untilDate = null;
-        String sourceUrl = "http://projecteuclid.org/DPubS";
-        String sourceSet = "";
-
-        File logFile = new File("c:\\log.txt");
-
-        Harvester harvester = new Harvester(sourceUrl, sourceSet, fromDate, untilDate, "oai_dc", logFile, -1);
-
-        harvester.run();
-
-
-        File file = new File("c:\\teste111.xml");
-        String lines = FileUtils.readFileToString(file, "UTF-8");
-
-
-        Document document = null;
-        SAXReader reader = new SAXReader();
-        document = reader.read(new StringReader(lines));
-
-        XmlUtil.writePrettyPrint(new File("c:\\teste222.xml"), document);
-
-    }
-
-
-
 }

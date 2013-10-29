@@ -169,14 +169,6 @@ public class Viewer extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitForm
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        if (args.length != 0)
-            new Viewer(args[0]).setVisible(true);
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bNext;
     private javax.swing.JScrollPane jScrollPane1;

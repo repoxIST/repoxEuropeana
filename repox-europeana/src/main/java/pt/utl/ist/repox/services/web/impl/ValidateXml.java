@@ -57,10 +57,4 @@ public class ValidateXml {
             throw spe;
         }
     }
-
-    public static void main(String[] args){
-        ValidateXml validateXml = new ValidateXml();
-        validateXml.validateXML(/*"C:\\testeValidate\\test.xml"*/"C:\\Users\\Gilberto Pedrosa\\Desktop\\recordsTest\\outros1\\dil.xml",
-                "http://www.europeana.eu/schemas/ese/ESE-V3.4.xsd");
-    }
 }

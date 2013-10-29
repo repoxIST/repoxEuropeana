@@ -12,7 +12,6 @@ public class PropertyUtil {
 
     public static Properties loadCorrectedConfiguration(String configurationFilename) {
         try {
-            // Use -Drepox.data.dir=D:\Projectos in the VM parameters in order to pass an already existing configuration.properties and gui.properties
             String configsDataDir = System.getProperty("repox.data.dir");
             String configurationFile;
             if(configDataDirAlreadyExists(configsDataDir, configurationFilename))
@@ -60,7 +59,6 @@ public class PropertyUtil {
 
     public static void saveProperties(Properties properties, String name){
         try {
-            // Use -Drepox.data.dir=D:\Projectos in the VM parameters in order to pass an already existing configuration.properties and gui.properties
             String configsDataDir = System.getProperty("repox.data.dir");
             String configurationFile;
             if(configDataDirAlreadyExists(configsDataDir, name))

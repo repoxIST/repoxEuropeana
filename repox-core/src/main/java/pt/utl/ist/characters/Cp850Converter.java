@@ -3,9 +3,6 @@ package pt.utl.ist.characters;
 import pt.utl.ist.marc.Field;
 import pt.utl.ist.marc.Record;
 import pt.utl.ist.marc.Subfield;
-import pt.utl.ist.util.FileUtil;
-
-import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -222,18 +219,6 @@ public class Cp850Converter {
     private static byte getByte(String b) {
         return Short.decode(b).byteValue();
     }
-
-
-    /**
-     * ***********************************************************************
-     * ***********                    Main                    ******************
-     * ***********************************************************************
-     */
-    public static void main(String[] args) throws Exception {
-        Record r = new Record(FileUtil.readFileToString(new File("c:/desktop/teste_cccm_2709.hzr")));
-        System.err.println(r);
-
-    } // main
 
 }
 

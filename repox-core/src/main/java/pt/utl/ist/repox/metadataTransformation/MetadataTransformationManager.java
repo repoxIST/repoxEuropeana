@@ -430,19 +430,6 @@ public class MetadataTransformationManager {
         }
         return "";
     }
-
-
-    public static void main(String[] args) throws IOException, DocumentException {
-        MetadataTransformationManager manager = ConfigSingleton.getRepoxContextUtil().getRepoxManager().getMetadataTransformationManager();
-        Map<String, List<MetadataTransformation>> transformationsMap = manager.getMetadataTransformations();
-        List<MetadataTransformation> transformationsList = new ArrayList<MetadataTransformation>();
-        transformationsList.add(new MetadataTransformation("marc212tel", "", MetadataFormat.MarcXchange.toString(), MetadataFormat.tel.toString(), "marc212tel.xsl", false, false, "info:lc/xmlns/marcxchange-v1.xsd", "info:lc/xmlns/marcxchange-v1"));
-        transformationsList.add(new MetadataTransformation("unimarc2tel", "", MetadataFormat.MarcXchange.toString(), MetadataFormat.tel.toString(), "unimarc2tel.xsl", false, false, "http://krait.kb.nl/coop/tel/handbook/telterms.html", "http://krait.kb.nl/coop/tel/handbook/telterms.html"));
-        transformationsList.add(new MetadataTransformation("unimarc2tel-notbn", "", MetadataFormat.MarcXchange.toString(), MetadataFormat.tel.toString(), "unimarc2tel-notbn.xsl", false, false, "http://krait.kb.nl/coop/tel/handbook/telterms.html", "http://krait.kb.nl/coop/tel/handbook/telterms.html"));
-        transformationsMap.put(MetadataFormat.MarcXchange.toString(), transformationsList);
-        manager.setMetadataTransformations(transformationsMap);
-        manager.saveMetadataTransformations();
-    }
 }
 
 class TransformationComparator implements Comparator<MetadataTransformation> {

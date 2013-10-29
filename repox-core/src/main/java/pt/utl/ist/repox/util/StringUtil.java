@@ -74,79 +74,14 @@ public class StringUtil {
 	}
 
 	public static void simpleLog(String message, Class clazz, File file) {
-//        System.out.println("INFO--------- " + message);
         LogUtil.addSimpleInfoLog(message, clazz, file, true);
-//		BufferedWriter writer = null;
-//        try {
-//			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true)));
-//			String messageToLog = DateUtil.date2String(new Date(), TimeUtil.LONG_DATE_FORMAT_TIMEZONE)
-//									+ " " + clazz.getName() + " " + message;
-//			if(LOG_TO_LOG4J) {
-//				Logger.getLogger(clazz).debug(messageToLog);
-//			}
-//			messageToLog = messageToLog + "\n";
-//			writer.write(messageToLog);
-//		}
-//		catch (IOException e) {
-//			log.error("Error writting to REPOX log file: " + file.getAbsolutePath() + " message: " + message, e);
-//		}
-//        finally {
-//            if(writer != null){
-//                try {
-//                    writer.close();
-//                } catch (IOException e) {
-//                    log.error("Error closing REPOX log file: " + file.getAbsolutePath() + " message: " + message, e);
-//                }
-//            }
-//        }
 	}
 
     public static void simpleLog(String message, Class clazz, File file, boolean writeToXML) {
-//        System.out.println("INFO--------- " + message);
         LogUtil.addSimpleInfoLog(message, clazz, file, writeToXML);
     }
 
 	public static void simpleLog(String message, Exception cause, Class clazz, File file) {
         LogUtil.addSimpleErrorLog(message,clazz,file,cause);
-//		BufferedWriter writer = null;
-//        try {
-//			writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true)));
-//			String messageToLog = DateUtil.date2String(new Date(), TimeUtil.LONG_DATE_FORMAT_TIMEZONE)
-//			+ " " + clazz.getName() + " " + message;
-//			if(LOG_TO_LOG4J) {
-//				Logger.getLogger(clazz).debug(messageToLog);
-//			}
-//
-//			StringWriter sw = new StringWriter();
-//			cause.printStackTrace(new PrintWriter(sw));
-//			String stacktrace = sw.toString();
-//
-//			messageToLog = messageToLog + ". Cause: \n"+ stacktrace.toString() +"\n";
-//			writer.write(messageToLog);
-//		}
-//		catch (IOException e) {
-//			log.error("Error writting to REPOX log file: " + file.getAbsolutePath() + " message: " + message, e);
-//		}
-//        finally {
-//            if(writer != null){
-//                try {
-//                    writer.close();
-//                } catch (IOException e) {
-//                    log.error("Error closing REPOX log file: " + file.getAbsolutePath() + " message: " + message, e);
-//                }
-//            }
-//        }
-	}
-	
-	public static void main(String[] args) {
-		System.out.println(StringUtil.sanitizeJavascript("f:\\lixo"));
-		System.out.println(StringUtil.sanitizeJavascript("([\"\'])\\"));
-		System.out.println(StringUtil.sanitizeJavascript("a("));
-		System.out.println(StringUtil.sanitizeJavascript("a["));
-		System.out.println(StringUtil.sanitizeJavascript("a\""));
-		System.out.println(StringUtil.sanitizeJavascript("a\'"));
-		System.out.println(StringUtil.sanitizeJavascript("a]"));
-		System.out.println(StringUtil.sanitizeJavascript("a)"));
-		System.out.println(StringUtil.sanitizeJavascript("a\\"));
 	}
 }

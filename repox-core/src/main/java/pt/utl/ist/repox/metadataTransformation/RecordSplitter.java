@@ -56,9 +56,5 @@ public class RecordSplitter {
 			XmlUtil.writePrettyPrint(outputStream, currentDocument);
 		}
 	}
-
-	public static void main(String[] args) throws Exception {
-		RecordSplitter.splitXmlFolder(new File("/home/dreis/apagame"), "/raiz/objecto", "/objecto/@id", new File("/home/dreis/apagame2"));
-	}
 }
 

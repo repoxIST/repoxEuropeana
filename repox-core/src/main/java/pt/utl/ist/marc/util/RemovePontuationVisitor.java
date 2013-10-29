@@ -269,21 +269,4 @@ public class RemovePontuationVisitor {
         	}
         }
     }     
-    
-    
-    
-    
-    
-    
-    
-    
-    public static void main(String[] args){
-        Record rec=new Record();
-        Field f=rec.addField(225);
-        f.addSubfield('f',"sdfsdfdsf)");
-        System.err.println(rec);
-        RemovePontuationVisitor.removePontuation(rec);
-        System.err.println(rec);
-        
-    }
 }

@@ -389,8 +389,7 @@ public class UtilManager {
                 mainGrid.getStore().removeAll();
                 mainGrid.getStore().add(result.getChildren(), true);
 
-                // TODO
-//                mainGrid.getMainDataGrid().expandAll();
+                mainGrid.getMainDataGrid().expandAll();
 //                        int totalSize = mainGrid.getStore().getModels().size();
 //                        mainGrid.getPagingToolBar().setEnabled(false);
                 UtilManager.unmaskCentralPanel();

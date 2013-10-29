@@ -330,35 +330,10 @@ public class Harvester implements RunnableStoppable {
     }
 
     private void writeRequest(int currentRequest, ListRecords listRecords) throws IOException {
-
-
-
-/*FileOutputStream outFile = null;
-
-        try{
-            outFile = new FileOutputStream("c:\\teste.xml");
-            OutputFormat format = new OutputFormat("XML","UTF-8", true);
-            org.apache.xml.serialize.XMLSerializer output = new org.apache.xml.serialize.XMLSerializer(outFile, format);
-            output.serialize(listRecords.getDocument());
-        }
-        catch(Exception e){
-        }
-        finally {
-            try {
-                outFile.close();
-            }
-            catch(Exception e){
-            }
-        }*/
-
-        // System.out.println("listRecords = " + listRecords.toString());
-
-
         File outputOAIResponseFile = getRequestFile(currentRequest);
         OutputStream outputStream = new FileOutputStream(outputOAIResponseFile);
         OutputStreamWriter writer = new OutputStreamWriter(outputStream, "UTF-8");
         try{
-            //writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
             writer.write(listRecords.toString());
             writer.write("\n");
         }
@@ -374,22 +349,6 @@ public class Harvester implements RunnableStoppable {
     public File getRequestFileNoRecords() {
         return new File(outputDirname + "/" + REQUEST_FILENAME_START + "--1.xml");
     }
-
-    /*
-    public String readErrorCode(){
-        SAXReader reader = new SAXReader();
-        try {
-            Document xmlSource = reader.read(new File(outputDirname + "/" + REQUEST_FILENAME_START + "--1.xml"));
-
-            if(xmlSource.getRootElement().element("error") != null){
-                return xmlSource.getRootElement().element("error").getText();
-            }
-        } catch (DocumentException e) {
-            return null;
-        }
-        return null;
-    }
-    */
 
     private void processErrors(NodeList errors, File logFile, ListRecords listRecords) throws IOException {
         writeRequest(-1, listRecords); // Write the error as identifier -1 to be read later
@@ -458,24 +417,6 @@ public class Harvester implements RunnableStoppable {
         return returnString;
     }
 
-    public static void main(String[] args) throws Exception {
-        Date fromDate = null;
-        Date untilDate = null;
-        String sourceUrl = "http://bd1.inesc-id.pt:8080/repoxel/OAIHandler";
-        String sourceSet = "bmfinancas";
-        int maxRecord4Sample = -1;
-//		sources.put("http://louisdl.louislibraries.org/cgi-bin/oai.exe", "LHC");
-//		sources.put("http://louisdl.louislibraries.org/cgi-bin/oai.exe", "LMP");
-//		sources.put("http://www.nla.gov.au/apps/oaicat/servlet/OAIHandler", "Map");
-//		sources.put("http://zbc.uz.zgora.pl/dlibra/oai-pmh-repository.xml", "DigitalLibraryZielonaGora:RegionalMaterialss:Dokkartee");
-//		sources.put("http://u2.gmu.edu:8080/dspace-oai/request", "hdl_1920_1935");
-//		sources.put("http://broker10.fcla.edu/cgi/b/broker20/broker20", "palmmfof:mapflbib");
-//		sources.put("http://vacani.icc.cat/cgi-bin/oai.exe", "catalunya");
-
-        Harvester harvester = new Harvester(sourceUrl, sourceSet, fromDate, untilDate, "ese", null, maxRecord4Sample);
-        harvester.run();
-
-    }
 
     public ArrayList<Integer> getServerInfos() {
         ArrayList<Integer> results = new ArrayList<Integer>(); // [0] = totalRecordsNumber; [1] = recordsPerResponse

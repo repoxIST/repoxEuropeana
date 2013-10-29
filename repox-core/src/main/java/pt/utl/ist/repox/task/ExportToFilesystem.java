@@ -367,12 +367,4 @@ public class ExportToFilesystem implements RunnableStoppable {
     public void stop() {
         stopExecution = true;
     }
-
-    public static void main(String[] args) throws DocumentException, IOException {
-        DataSource dataSource = ConfigSingleton.getRepoxContextUtil().getRepoxManager().getDataManager().getDataSourceContainer("bn_teses").getDataSource();
-        ExportToFilesystem exportToFilesystem = new ExportToFilesystem("112911", dataSource.getId(), "f:/lixo" , "-1", "false");
-        System.out.println(exportToFilesystem.getRecordsPerFile());
-//		if(true) System.exit(0);
-        exportToFilesystem.run();
-    }
 }

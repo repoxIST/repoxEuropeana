@@ -630,10 +630,4 @@ public class TaskManager implements RunnableStoppable {
         }
         return false;
     }
-
-    public static void main(String[] args) throws IOException {
-        TaskManager taskManager = ConfigSingleton.getRepoxContextUtil().getRepoxManager().getTaskManager();
-        taskManager.deleteTask("1");
-    }
-
 }

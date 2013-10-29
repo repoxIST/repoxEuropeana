@@ -337,13 +337,6 @@ public class TransformationsServiceImpl extends RemoteServiceServlet implements 
         }
     }
 
-    public static void main(String[] args){
-//        try {
-//            TransformationsServiceImpl.testMDrServices();
-//        } catch (ServerSideException e) {
-//            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-//        }
-    }
 
     /****************************
      *      PRIVATE METHODS      *

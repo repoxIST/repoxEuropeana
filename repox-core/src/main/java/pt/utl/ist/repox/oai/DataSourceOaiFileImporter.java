@@ -49,10 +49,4 @@ public class DataSourceOaiFileImporter {
 		}
 	}
 	
-	public static void main(String[] args) throws IOException, DocumentException, AlreadyExistsException {
-		DataSourceOaiFileImporter importer = new DataSourceOaiFileImporter();
-		
-		File file = new File("f:/dreis/Desktop/sources.txt");
-		importer.doImport(file);
-	}
 }

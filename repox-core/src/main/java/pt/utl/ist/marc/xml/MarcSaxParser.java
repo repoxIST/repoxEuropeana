@@ -175,36 +175,4 @@ public class MarcSaxParser extends DefaultHandler{
            throw new SAXException(e);
        }
     }
-	
-   public static void main( final String [] args ) {
-       try{
-           
-    	   ArrayList<Record> records=MarcSaxParser.parse(new FileInputStream("C:\\desktop\\example.xml"));
-            System.out.println(NUtil.listToString(records, "", "", "\n"));
-            
-           
-           
-//            Record mets=UnimarcSaxParser.parse(new FileInputStream("C:\\progs\\tomcat5\\webapps\\testebndpub\\obra1\\record\\1.xml"));
-//            System.err.println(mets);
-//            
-//            System.err.println();
-//            System.err.println();
-//            Document dom=pt.utl.ist.urn.client.UrnClient.getRecordAsXml("323613",pt.utl.ist.urn.client.UrnClient.NCB);
-//            mets=RecordBuilder.domToRecord(dom);
-//            System.err.println(mets);
-//            
-//            
-//            pt.utl.ist.util.DomUtil.saveDomToFile(dom, new File("c:\\desktop\\teste.xml"));
-//            
-//            System.err.println();
-//            System.err.println();
-//            
-//            Document d=pt.utl.ist.util.DomUtil.parseDomFromFile(new File("C:\\progs\\tomcat5\\webapps\\testebndpub\\obra1\\record\\1.xml"));
-//            mets=RecordBuilder.domToRecord(d);
-//            System.err.println(mets);
-       }catch(Exception e){
-           e.printStackTrace();
-       }
-   }
-   
 }

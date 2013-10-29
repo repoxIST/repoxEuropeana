@@ -171,51 +171,6 @@ public class MetadataTransformation {
 
 
 
-    public static void main( final String [] args ) {
-        /*
-        try{
-            List<Element> records = RecordSAXParser.parse(new File("C:\\Users\\GPedrosa\\Desktop\\outros2\\09428_Ag_DE_ELocal.xml"), "europeana:record");
-            System.out.println("records = " + records.size());
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        */
-
-
-        //String foo_xml = "C:\\Users\\GPedrosa\\Desktop\\REPOX\\XSL2\\xml.xml"; //input xml
-        //String foo_xsl = "C:\\Users\\GPedrosa\\Desktop\\REPOX\\XSL2\\xsl-v2.xsl"; //input xsl
-
-        //String foo_xml = "C:/Users/GPedrosa/Desktop/repoxTest/PM/PortugalMatematica-1.xml"; //input xml
-        //String foo_xsl = "C:\\Users\\GPedrosa\\Desktop\\repoxTest\\xsl\\IstPmToNlm.xsl"; //input xsl
-
-        String foo_xml2 = "D:\\Projectos\\repoxdata_new\\export\\bmfinancas\\bmfinancas12-1.xml"; //input xml
-        String foo_xsl2 = "D:\\Projectos\\repoxdata_new\\configuration\\xslt\\winlib2ese.xsl"; //input xsl
-
-
-        // String foo_xml = "C:\\Users\\GPedrosa\\Desktop\\EuDML\\repoxTest\\testXslt1\\OAIHandler.xml"; //input xml
-        // String foo_xsl = "c:\\tel\\repoxdata\\configuration\\xslt\\unimarcFigVinhos2ese.xsl"; //input xsl
-
-
-        try {
-            System.out.println("1... T1 : XML: version1 : XSL: version1");
-            //     myTransformer (foo_xml, foo_xsl, false);
-            //System.out.println("2... T2: XML: version2 : XSL: version2");
-            myTransformer (foo_xml2, foo_xsl2, false);
-            //System.out.println("");
-            //System.out.println("3... T2 : XML: version1 : XSL: version1");
-            //myTransformerV2(foo_xml, foo_xsl);
-            //System.out.println("4... T1 : XML: version2 : XSL: version2");
-            //myTransformerV1(foo_xml2, foo_xsl2);
-            //System.out.println("");
-            //System.out.println("5... T1 : XML: version1 : XSL: version1");
-            //myTransformerV1 (foo_xml, foo_xsl);
-            //System.out.println("6... T2: XML: version2 : XSL: version2");
-            //myTransformerV2 (foo_xml2, foo_xsl2);
-
-        } catch (Exception ex) {
-            System.out.println("ex = " + ex);
-        }
-    }
 
 
     private static void myTransformer(String sourceID, String xslID, boolean isVersion2)

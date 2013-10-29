@@ -302,22 +302,6 @@ public class AnselConverter {
         }
         return null;
     }
-
-
-    /**
-     * ***********************************************************************
-     * ***********                    Main                    ******************
-     * ***********************************************************************
-     */
-    public static void main(String[] args) {
-
-        System.err.println(AnselConverter.convertString("< >dá  ecoraçauo º ª"));
-        ByteInspector.printBytes("u".getBytes());
-        ByteInspector.printBytes("ù".getBytes());
-
-
-    } // main
-
 }
 
 

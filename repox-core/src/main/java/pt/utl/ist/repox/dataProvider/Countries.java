@@ -47,11 +47,4 @@ public class Countries {
 			log.error("Error loading countries from file: " + RepoxContextUtilDefault.COUNTRIES_FILENAME, e);
 		}
 	}
-	
-	public static void main(String[] args) {
-		for (String key : Countries.getCountries().keySet()) {
-			System.out.println("[" + key + ";" + Countries.getCountries().get(key) + "]");
-            
-		}
-	}
 }

@@ -44,23 +44,5 @@ public class MARCPartialReaderUkraine extends MARCPartialReader {
     public MARCPartialReaderUkraine(String charset) {
     	super(charset);
     }
-    
-  
- 
-    
-    
-    public static void main(String[] args) throws Exception {
-		MarcWriterInXml w=new MarcWriterInXml(new File("C:\\Desktop\\t.xml"));
-		for (Record r: new IteratorIso2709Ukraine(new File("C:\\Desktop\\Projectos\\TELplus\\Repox\\ukraine.iso"))) {
-			System.out.println(r.toMarcXChangeXmlString());
-			
-			
-			w.write(r);
-		}
-		w.close();
-		
-		
-		
-	}
 }
 // End of MARCREader.java

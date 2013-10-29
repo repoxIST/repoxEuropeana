@@ -103,16 +103,4 @@ public class MarcXchangeFileExtract implements FileExtractStrategy {
 		}
 
 	}
-	
-	public static void main(String[] args) throws Exception {
-		Iterator<Record> recordIterator = MarcSaxParser.parse(new FileInputStream(new File("f:/temp/2marcxchange/999.xml"))).iterator();
-		Record currentRecord = recordIterator.next(); 
-		Element marcRootElement = XmlUtil.getRootElement(currentRecord.toXmlbytes());
-		Element recordElement = marcRootElement;
-		if(marcRootElement.elements().size() == 1 && marcRootElement.getName().equals("collection")) {
-			recordElement = (Element) marcRootElement.elements().get(0);
-		}
-		
-		System.out.println(recordElement.asXML());
-	}
 }

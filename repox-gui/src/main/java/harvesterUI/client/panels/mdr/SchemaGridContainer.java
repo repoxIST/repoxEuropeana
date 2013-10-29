@@ -26,8 +26,7 @@ public class SchemaGridContainer extends DataGridContainer{
 
     public SchemaGridContainer(SchemasPanel gridPanel, TreeGrid<SchemaTreeUI> tree){
         _gridPanel = gridPanel;
-        // TODO
-//        mainDataGrid = tree;
+        mainDataGrid = tree;
     }
 
     public void loadGridData(PagingLoadConfig config){
@@ -37,9 +36,9 @@ public class SchemaGridContainer extends DataGridContainer{
                 new ServerExceptionDialog("Failed to get response from server",caught.getMessage()).show();
             }
             public void onSuccess(List<harvesterUI.shared.mdr.SchemaTreeUI> schemasTreeData) {
-//                mainDataGrid.getStore().removeAll();
-//                mainDataGrid.getTreeStore().add(schemasTreeData, true);
-//                mainDataGrid.expandAll();
+                mainDataGrid.getStore().removeAll();
+                mainDataGrid.getTreeStore().add(schemasTreeData, true);
+                mainDataGrid.expandAll();
                 UtilManager.unmaskCentralPanel();
                 _gridPanel.getPagingToolbar().loadPagingInfo();
                 _gridPanel.getPagingToolbar().showRefreshIconRunning(false);

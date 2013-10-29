@@ -105,14 +105,7 @@ public class NUtil {
     public static File findBeaconLocation(String beacon){
         return new File(NUtil.getPathOfResource(beacon)).getParentFile();
     }
-//     public static void main(String args[]) {
-//         try{
-//            //System.err.println(NUtil.getPathOfResource("bnd_repository.xml") );         
-//         }catch(Exception e){
-//            e.printStackTrace();
-//        }
-//    }   
-    
+
 
     public static String arrayToString(Object[] array, String prefix, String suffix, String separator){
         return listToString(arrayToList(array), prefix,suffix,separator);

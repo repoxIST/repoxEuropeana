@@ -38,9 +38,6 @@ import java.util.HashMap;
 public class Test {
     private enum HarvestType { timestamp, idList, idSequence }
 
-    // harvester.setIdBibAttribute("14");
-    // harvester.setIdBibAttribute("1007");
-
     Searchable currentSearchable = null;
     Z3950ServiceFactory factory;
     ApplicationContext appContext;
@@ -94,77 +91,6 @@ public class Test {
         ConfigSingleton.getRepoxContextUtil().getRepoxManagerTest().getDataManager().deleteDataProvider(dataProviderId);
     }
 
-    public static void main(String[] args) throws ParseException, IOException, DocumentException, SQLException, ClassNotFoundException, IllegalFileFormatException, NoSuchMethodException, AlreadyExistsException {
-//        Target target = new Target("roze.lanet.lv", 9991, "lnc04", "z39_lnc04", "_zlnc04__", CharacterEncoding.UTF_8, "usmarc");
-//        Target target = new Target(1, "porbase.bnportugal.pt", 210, "porbase", "", "", "", "unimarc");
-//        Target target = new Target("porbase.bnportugal.pt", 210, "porbase", "", "", CharacterEncoding.ISO_5426, "unimarc");
-//        Target target = new Target("z3950.porbase.org", 21000, "bnd", "", "", "ISO8859-1", "unimarc");
-//        Target target = new Target("193.6.201.205", 1616, "B1", "LIBRI", "vision98", "ANSEL", "usmarc");
-//        Target target = new Target("aleph.lbfl.li", 9909, "LLB_IDS", "", "", CharacterEncoding.UTF_8, "usmarc");
-
-//		  193.6.201.205  1616 B1 LIBRI vision98 ANSEL usmarc f:/dreis/Desktop/Z39.50Harvester2/HungaryIdList.txt
-//
-        //Date earliestTimestamp = DateUtil.string2Date("20090401", "yyyyMMdd");
-        Date earliestTimestamp = DateUtil.string2Date("20110301", "yyyyMMdd");
-        File idListFile = new File("C:\\Users\\Toshiba\\Desktop\\Novo Documento de Texto.txt");
-        //File idListFile = new File("C:\\Users\\Toshiba\\Desktop\\nuno\\1900028192z3950idList.txt");
-        Long maxId = (long) 5000;
-
-        Target target = new Target("193.6.201.205", 1616, "B1", "LIBRI", "vision98", CharacterEncoding.UTF_8, "usmarc");
-        Test test = new Test(target, earliestTimestamp, idListFile, maxId);
-        DataSourceZ3950 dataSourceZ3950 = test.createDummyDataSource(test.getHarvestMethod(HarvestType.idList));
-        File logFile = new File("C:\\Users\\Toshiba\\Desktop\\log.log");
-
-        //dataSourceZ3950.ingestRecords(logFile, false);
-
-
-        BufferedReader reader = new BufferedReader(new FileReader(idListFile));
-        String recordId=reader.readLine();
-
-        test.init();
-
-        recordId = recordId.replace('\"', ' ');
-
-        int currentId = 0;
-
-
-        while(recordId != null) {
-            String queryStr="@attrset bib-1 " + "@attr 1=" + "12" + " \"" + recordId + "\"";
-
-            currentId++;
-            System.out.println(currentId);
-
-            IRResultSet results = test.runQuery(queryStr);
-
-            Enumeration<InformationFragment> currentInformationFragment = new org.jzkit.search.util.ResultSet.ReadAheadEnumeration(results);
-
-            currentInformationFragment.nextElement().getOriginalObject();
-            //Record nextRecord = new Record("sada", null);
-
-            //System.out.println("nextRecord = " + nextRecord.getNc());
-            System.out.println("status = " + results.getStatus());
-
-            recordId=reader.readLine();
-        }
-
-
-        System.exit(0);
-
-        /*Target target = new Target("roze.lanet.lv", 9991, "nll01", "z39_nll01", "_znll01__", CharacterEncoding.UTF_8,"usmarc");
-		Test test = new Test(target, earliestTimestamp, idListFile, maxId);
-        DataSourceZ3950 dataSourceZ3950 = test.createDummyDataSource(test.getHarvestMethod(HarvestType.timestamp));
-		File logFile = new File("C:\\Users\\Toshiba\\Desktop\\log.log");
-		dataSourceZ3950.ingestRecords(logFile, false);
-		System.exit(0);*/
-
-        /*Target target = new Target("roze.lanet.lv", 9991, "nll01", "z39_nll01", "_znll01__", CharacterEncoding.UTF_8, "usmarc");
-		Test test = new Test(target, null, null, 40000);
-		DataSourceZ3950 dataSourceZ3950 = test.createDummyDataSource(test.getHarvestMethod(HarvestType.idSequence));
-		File logFile = new File("C:\\Users\\Toshiba\\Desktop\\log.log");
-		dataSourceZ3950.ingestRecords(logFile, false);
-		System.exit(0);*/
-
-    }
 
     public void init() {
         connect();
@@ -206,7 +132,6 @@ public class Test {
 
                 result.waitForStatus(IRResultSetStatus.COMPLETE | IRResultSetStatus.FAILURE, 30000);
 
-//	    		log.info(result.getFragmentCount());
             } catch (IRResultSetException ex) {
                 continue;
             } catch (SearchException ex) {

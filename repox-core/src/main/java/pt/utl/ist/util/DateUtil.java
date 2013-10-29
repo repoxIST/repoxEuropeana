@@ -343,16 +343,4 @@ public class DateUtil {
         cal.add(calendarField, numberOfUnits);
         return cal.getTime();
     }
-
-
-
-    public static void main(String[] args){
-        System.err.println(dateToInt(new Date()));
-        System.err.println(new Date());
-        System.err.println(int2Date(dateToInt(new Date())));
-
-
-        System.err.println("\u00c0 \u00c1");
-    }
-
 }

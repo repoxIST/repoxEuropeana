@@ -14,7 +14,4 @@ public class PagingUtil {
         return RepoxServiceImpl.getProjectManager().getDataPage(id, pageSize);
     }
 
-    public static void main(String[] args){
-//        System.out.println("RES= " + 8%6);
-    }
 }

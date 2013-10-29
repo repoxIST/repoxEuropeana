@@ -28,15 +28,4 @@ public class IteratorIso2709Albania extends IteratorIso2709 {
 //		reader.setUnitDelimiter('^');
 		isoNavig=new IsoNavigator(isoFile.getAbsolutePath(), reader);
 	}
-	
-
-    
-    public static void main(String[] args) throws Exception {
-		MarcWriterInXml w=new MarcWriterInXml(new File("C:\\Desktop\\t.xml"));
-		for (Record r: new IteratorIso2709Albania(new File("C:\\Desktop\\Projectos\\TELplus\\Repox\\Albania.txt"))) {
-			w.write(r);
-			System.out.println(r);
-		}
-		w.close();
-	}
 }

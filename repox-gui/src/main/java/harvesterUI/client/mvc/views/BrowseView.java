@@ -59,7 +59,7 @@ public class BrowseView extends View {
             if(wrapper.getItem(0) != mainGrid.getMainGridPanel()) {
                 wrapper.removeAll();
                 wrapper.add(mainGrid.getMainGridPanel());
-//                wrapper.layout();
+                wrapper.layout();
             }
 
             // Check if filter are applied or search
@@ -69,7 +69,7 @@ public class BrowseView extends View {
             else
                 mainGrid.refreshGrid();
 
-//            mainGrid.getPagingToolBar().setEnabled(true);
+            mainGrid.getPagingToolBar().setEnabled(true);
         }
         else if (event.getType() == AppEvents.ViewMoveDataProviderDialog) {
             moveDataProviderDialog.setDataProviders((List<DataProviderUI>) event.getData());
@@ -85,25 +85,23 @@ public class BrowseView extends View {
                     new ServerExceptionDialog("Failed to get response from server",caught.getMessage()).show();
                 }
                 public void onSuccess(Map<String,DataSetStatus> result) {
-                    // TODO
-//                    for(DataContainer model : mainGrid.getMainDataGrid().getStore().getModels()) {
-//                        if(model instanceof DataProviderUI && ((DataProviderUI) model).getDataSourceUIList().size() == 1){
-//                            updateDataSet(((DataProviderUI) model).getDataSourceUIList().get(0), result);
-//                        }else if(model instanceof DataSourceUI) {
-//                            DataSourceUI dataSourceUI = (DataSourceUI) model;
-//                            updateDataSet(dataSourceUI, result);
-//                        }
-//                    }
-//                    mainGrid.getMainDataGrid().getView().refresh(false);
-//                    mainGrid.resetScrollBarPos();
+                    for(DataContainer model : mainGrid.getMainDataGrid().getStore().getModels()) {
+                        if(model instanceof DataProviderUI && ((DataProviderUI) model).getDataSourceUIList().size() == 1){
+                            updateDataSet(((DataProviderUI) model).getDataSourceUIList().get(0), result);
+                        }else if(model instanceof DataSourceUI) {
+                            DataSourceUI dataSourceUI = (DataSourceUI) model;
+                            updateDataSet(dataSourceUI, result);
+                        }
+                    }
+                    mainGrid.getMainDataGrid().getView().refresh(false);
+                    mainGrid.resetScrollBarPos();
                 }
             };
-//            DataSetOperationsServiceAsync service = (DataSetOperationsServiceAsync) Registry.get(HarvesterUI.DATA_SET_OPERATIONS_SERVICE);
-//            service.getAllDataSourceStatus(mainGrid.getMainDataGrid().getStore().getModels(),callback);
+            DataSetOperationsServiceAsync service = (DataSetOperationsServiceAsync) Registry.get(HarvesterUI.DATA_SET_OPERATIONS_SERVICE);
+            service.getAllDataSourceStatus(mainGrid.getMainDataGrid().getStore().getModels(),callback);
         }else if (event.getType() == AppEvents.RemoveGridOperations) {
-            // TODO
-//            mainGrid.getMainGridPanel().setTopComponent(null);
-//            mainGrid.getMainDataGrid().removeAllListeners();
+            mainGrid.getMainGridPanel().setTopComponent(null);
+            mainGrid.getMainDataGrid().removeAllListeners();
         }
     }
 

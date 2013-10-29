@@ -3,7 +3,6 @@ package harvesterUI.client.panels.grid;
 import com.extjs.gxt.ui.client.data.ModelData;
 import com.extjs.gxt.ui.client.data.PagingLoadConfig;
 import com.extjs.gxt.ui.client.widget.treegrid.TreeGrid;
-import harvesterUI.client.panels.overviewGrid.tree.MainGridTree;
 import harvesterUI.shared.dataTypes.DataContainer;
 
 /**
@@ -14,22 +13,21 @@ import harvesterUI.shared.dataTypes.DataContainer;
  */
  public abstract class DataGridContainer<M extends ModelData> {
 
-    protected MainGridTree mainDataGrid;
+    protected TreeGrid<M> mainDataGrid;
     protected int scrollBarY = 0;
 
     public abstract void loadGridData(PagingLoadConfig config);
 
     public void setScrollBarY() {
         try{
-            // TODO
-//            if(mainDataGrid.asWidget().getScrollState() != null)
-//                this.scrollBarY = mainDataGrid.getView().getScrollState().y;
+            if(mainDataGrid.getView().getScrollState() != null)
+                this.scrollBarY = mainDataGrid.getView().getScrollState().y;
         }catch (NullPointerException e){
 
         }
     }
 
-    public MainGridTree getMainDataGrid() {
+    public TreeGrid<M> getMainDataGrid() {
         return mainDataGrid;
     }
 }

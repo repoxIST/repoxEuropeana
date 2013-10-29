@@ -360,11 +360,4 @@ public class LogUtil {
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args){
-        Date date1 = new Date("Wed Feb 01 11:16:46 GMT 2012");
-        Date date2 = new Date("Wed Feb 01 11:20:28 GMT 2012");
-
-        System.out.println(dateDiff(date1, date2));
-    }
 }

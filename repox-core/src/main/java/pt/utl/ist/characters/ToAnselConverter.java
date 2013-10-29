@@ -449,20 +449,6 @@ public class ToAnselConverter {
             throw new RuntimeException(e);
         }
     }
-
-
-    /**************************************************************************
-     ************                    Main                    ******************
-     *************************************************************************/
-    public static void main(String[] args) {
-
-        System.err.println(ToAnselConverter.convertString("< >dá  ecoraçauo º ª"));
-        ByteInspector.printBytes("u".getBytes());
-        ByteInspector.printBytes("ù".getBytes());
-
-
-    } // main
-
 }
 
 

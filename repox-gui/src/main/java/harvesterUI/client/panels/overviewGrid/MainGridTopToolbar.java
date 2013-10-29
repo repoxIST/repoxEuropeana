@@ -168,7 +168,7 @@ public class MainGridTopToolbar extends ToolBar{
         config.setOffset(0);
         config.setLimit(25);
         config.set("VIEW_TYPE","AGGREAGATORS");
-//        mainGrid.getPagingToolBar().load(config);
+        mainGrid.getPagingToolBar().load(config);
     }
 
     private void showDataProviders() {
@@ -176,7 +176,7 @@ public class MainGridTopToolbar extends ToolBar{
         config.setOffset(0);
         config.setLimit(25);
         config.set("VIEW_TYPE","DATA_PROVIDERS");
-//        mainGrid.getPagingToolBar().load(config);
+        mainGrid.getPagingToolBar().load(config);
     }
 
     private void showDataSources() {
@@ -184,7 +184,7 @@ public class MainGridTopToolbar extends ToolBar{
         config.setOffset(0);
         config.setLimit(25);
         config.set("VIEW_TYPE","DATA_SETS");
-//        mainGrid.getPagingToolBar().load(config);
+        mainGrid.getPagingToolBar().load(config);
     }
 
     public SearchComboBox getSearchCombo() {

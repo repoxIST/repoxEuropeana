@@ -70,31 +70,4 @@ public class MarcWriterInXml {
 		fileWriter.write("\n</mx:collection>".getBytes("UTF-8"));
 		fileWriter.close();
 	}
-	
-	
-	
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) throws Exception{
-		MarcWriterInXml w=new MarcWriterInXml(new File("C:\\Desktop\\1EclipsePrj\\PORBASE-Repox\\test\\nmaf\\repox\\cooperantes\\tests\\lotes\\horizonFirstHarvest.xml"));
-		w.write(new File("C:\\Desktop\\1EclipsePrj\\PORBASE-Repox\\test\\nmaf\\repox\\cooperantes\\tests\\lotes\\horizonFirstHarvest.iso"));
-		w.close();
-
-		System.out.println("");
-		w=new MarcWriterInXml(new File("C:\\Desktop\\1EclipsePrj\\PORBASE-Repox\\test\\nmaf\\repox\\cooperantes\\tests\\lotes\\esel-horizonFirstHarvest.xml"));
-		w.write(new File("C:\\Desktop\\1EclipsePrj\\PORBASE-Repox\\test\\nmaf\\repox\\cooperantes\\tests\\lotes\\esel-horizonFirstHarvest.iso"));
-		w.close();
-
-
-		w=new MarcWriterInXml(new File("C:\\Desktop\\1EclipsePrj\\PORBASE-Repox\\test\\nmaf\\repox\\cooperantes\\tests\\lotes\\esel.xml"));
-		w.write(new File("C:\\Desktop\\1EclipsePrj\\PORBASE-Repox\\test\\nmaf\\repox\\cooperantes\\tests\\lotes\\esel.iso"));
-		w.close();
-
-		
-		w=new MarcWriterInXml(new File("C:\\Desktop\\1EclipsePrj\\PORBASE-Repox\\test\\nmaf\\repox\\cooperantes\\tests\\lotes\\bn.xml"));
-		w.write(new File("C:\\Desktop\\1EclipsePrj\\PORBASE-Repox\\test\\nmaf\\repox\\cooperantes\\tests\\lotes\\bn.iso"));
-		w.close();
-	}
-
 }

@@ -4,14 +4,11 @@
  */
 package pt.utl.ist.marc;
 
-import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.Namespace;
 import org.dom4j.QName;
 import pt.utl.ist.util.DateUtil;
-import pt.utl.ist.util.Dom4jUtil;
 
-import java.io.File;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.regex.Matcher;
@@ -150,31 +147,7 @@ public class PortugalMatematicaDublinCoreToUnimarcCrosswalk {
                 f210.addSubfield('d',yearOfPublication);
             break;
         }
-        
-        
-        
-        
-        
-//		NodeList titles=dc.getElementsByTagNameNS("http://purl.org/dc/elements/1.1/","title");
-//		
-//        int sz=titles.getLength();
-//        for (int idx=0 ; idx<sz ; idx++) {
-//            Node node = titles.item(idx);
-//            if (node.getNodeName().equals("leader"))
-//                rec.setLeader(node.getFirstChild().getNodeValue());
-////            else if (node.getNodeName().equals("controlfield"))
-////                parseControlField(node);
-////            else if (node.getNodeName().equals("datafield"))
-////                parseDataField(node);
-//        }
-////        recs.add(rec);
 		return rec;
 	}
-	
-	
-	public static void main(String[] args) throws Exception{
-		Document dc=Dom4jUtil.parseDomFromFile(new File("c:\\desktop\\registos\\j-5293-b-vol1-fasc1-art1.xml"),"UTF-8");
-		System.out.println(toUnimarc((Element)dc.getRootElement()));
-		System.out.println(toUnimarc((Element)dc.getRootElement()).toIso2709());
-	}
+
 }

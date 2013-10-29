@@ -172,7 +172,6 @@ public class DataSourceFtp implements FileRetrieveStrategy{
         this.password = password;
         this.idTypeAccess = idTypeAccess;
 
-        //if(ftpPath != null && !ftpPath.isEmpty()){
         if(ftpPath != null){
             if(ftpPath.startsWith("/"))
                 this.ftpPath = ftpPath.substring(1);
@@ -180,45 +179,6 @@ public class DataSourceFtp implements FileRetrieveStrategy{
                 this.ftpPath = ftpPath;
         }
     }
-
-    public static void main(String[] args) {
-
-        /*  FTPClient ftp = new FTPClient();
-        FileOutputStream fos = null;
-
-        try {
-            ftp.connect("bd1.inesc-id.pt");
-            // boolean login = ftp.login("ftp", "pmath2010.");
-            ftp.login("ftp", "pmath2010.");
-
-            ftp.changeWorkingDirectory("Lizbeth");
-
-            String[] names = ftp.listNames();
-            for (String name : names)
-            {
-                System.out.println("Name = " + name);
-                File f=new File("C:/LIZBETH/" + name);
-                fos = new FileOutputStream(f);
-                ftp.retrieveFile (name, fos) ;
-
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-
-                if (fos != null) {
-                    fos.close();
-                }
-                ftp.disconnect();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }*/
-    }
-
-
 }
 
 

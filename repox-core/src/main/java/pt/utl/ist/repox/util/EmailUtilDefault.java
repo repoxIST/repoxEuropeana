@@ -166,19 +166,4 @@ public class EmailUtilDefault implements EmailUtil{
         }
         return zippedFile;
     }
-
-
-    public static void main(String[] args) throws Exception {
-        ConfigSingleton.setRepoxContextUtil(new RepoxContextUtilDefault());
-//        String smtpServer = "smtp.gmail.com";
-        String fromEmail = "eudml@eudml.org";
-        String[] recipientsEmail = new String[]{"joao.a.edmundo@gmail.com"};
-        File[] attachments = new File[] { new File("src/test/resources/xslImportTest/new.xsl") };
-        EmailUtilDefault emailUtilDefault = new EmailUtilDefault();
-        emailUtilDefault.sendEmail(fromEmail, recipientsEmail, "REPOX email", "Test message", attachments, null);
-//        File newFile = new File("D:\\Projectos\\TESTS\\threads.xml");
-//        EmailUtilDefault emailUtilDefault = new EmailUtilDefault();
-//        emailUtilDefault.createZipFile(newFile);
-        System.exit(0);
-    }
 }

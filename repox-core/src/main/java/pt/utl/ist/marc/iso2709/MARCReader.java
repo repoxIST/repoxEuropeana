@@ -33,39 +33,6 @@ import java.io.*;
  * {@link MARCHandler} implementation about events occuring in the
  * parsed records.  </p>
  *
- * <p>The following <code>main()</code> method shows the basic use of the
- * <code>MARCReader</code> object:</p>
- * <pre>
- * public static void main(String args[]) {
- *   String infile = args[0];
- *
- *   // create a new MARCReader instance
- *   MARCReader marcReader = new MARCReader();
- *
- *   // register the MARCHandler implementation
- *   marcReader.setMARCHandler(new MARCHandlerImpl());
- *
- *   // send the file to the parse method
- *   // the try block is there to catch exceptions
- *   // thrown by the parser
- *   try {
- *     marcReader.parse(infile);
- *   } catch (Exception e) {
- *     e.printStackTrace();
- *   }
- * }
- * </pre>
- * <p><code>MARCReader</code> can throw the following exceptions when
- * it encounters problems while parsing MARC records:</p>
- * <ul>
- * <li>{@link ParseRecordException}
- * <li>{@link ParseDirectoryException}
- * <li>{@link ParseVariableFieldException}
- * <li>{@link IllegalTagException}
- * <li>{@link IllegalIndicatorException}
- * <li>{@link IllegalIdentifierException}
- * </ul><p>
- *
  * @author Bas Peters - <a href="mailto:mail@bpeters.com">mail@bpeters.com</a>
  * @version 0.2
  */
