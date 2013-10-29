@@ -3,10 +3,40 @@ repoxEuropeana
 
 REPOX Europeana
 
-To configure REPOX some parameters must be set on the "configurations.properties" file.
+To configure REPOX some parameters must be set on the "configurations.properties" file under "repox-core\src\main\resources":
 
+# Directory of the REPOX Repository (XML files)
+repository.dir C:/repoxdata/repository
+# Directory of the REPOX XML Dynamic Configuration Files (DataProviders, Statistics)
+xmlConfig.dir C:/repoxdata/configuration
+# Directory for the temporary OAI-PMH requests
+oairequests.dir C:/repoxdata/[temp]OAI-PMH_Requests
+# Directory for the temporary FTP requests
+ftprequests.dir C:/repoxdata/[temp]FTP_Requests
+# Directory for the temporary HTTP requests
+httprequests.dir C:/repoxdata/[temp]HTTP_Requests
+# Directory of the Database
+database.dir C:/repoxdata/repoxdb
 
+administrator.email mail@gmail.com
+smtp.server smtp.gmail.com
+default.email mail@gmail.com
+administrator.email.pass zzzz
+smtp.port 465
 
+Derby Database:
+database.driverClassName org.apache.derby.jdbc.EmbeddedDriver
+database.embeddedDriver true
+database.url jdbc:derby:
+database.create true
+
+Or if using a PostGres Database:
+database.driverClassName org.postgresql.Driver
+database.url jdbc:postgresql://localhost/exampledb
+database.user postgres
+database.password postgres
+
+==================================================================================================
 Additional Information:
 
 Configuration file imported through classpath (configuration. properties and log4j.properties):
