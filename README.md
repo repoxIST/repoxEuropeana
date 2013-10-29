@@ -1,6 +1,6 @@
 #REPOX Europeana SRC Code
 
-1 - To configure REPOX some parameters must be set on the "configurations.properties" file under "repox-core\src\main\resources":
+To configure REPOX some parameters must be set on the "configurations.properties" file under "repox-core\src\main\resources":
 
 - Directory of the REPOX Repository (XML files)<br>
 repository.dir C:/repoxdata/repository 
@@ -44,8 +44,6 @@ ldapLoginDN = <br>
 sendEmailAfterIngest = false<br>
 useOAINamespace = false<br>
 <br>
-
-2 - Also set these properties for "Test-configuration.properties" under "repox-gui\src\test\resources".
 
 ==================================================================================================
 Additional Information:<br>
