@@ -1,21 +1,21 @@
 repoxEuropeana
 ==============
 
-REPOX Europeana
+#REPOX Europeana
 
 1 - To configure REPOX some parameters must be set on the "configurations.properties" file under "repox-core\src\main\resources":
 
-# Directory of the REPOX Repository (XML files)
+//Directory of the REPOX Repository (XML files)
 repository.dir C:/repoxdata/repository
-# Directory of the REPOX XML Dynamic Configuration Files (DataProviders, Statistics)
+//Directory of the REPOX XML Dynamic Configuration Files (DataProviders, Statistics)
 xmlConfig.dir C:/repoxdata/configuration
-# Directory for the temporary OAI-PMH requests
+//Directory for the temporary OAI-PMH requests
 oairequests.dir C:/repoxdata/[temp]OAI-PMH_Requests
-# Directory for the temporary FTP requests
+//Directory for the temporary FTP requests
 ftprequests.dir C:/repoxdata/[temp]FTP_Requests
-# Directory for the temporary HTTP requests
+//Directory for the temporary HTTP requests
 httprequests.dir C:/repoxdata/[temp]HTTP_Requests
-# Directory of the Database
+//Directory of the Database
 database.dir C:/repoxdata/repoxdb
 
 administrator.email mail@gmail.com
@@ -49,7 +49,7 @@ useOAINamespace = false
 2 - Also set these properties for "Test-configuration.properties" under "repox-gui\src\test\resources".
 
 ==================================================================================================
-Additional Information:
+#Additional Information:
 
 1 - Configuration file imported through classpath (configuration. properties and log4j.properties):
 
