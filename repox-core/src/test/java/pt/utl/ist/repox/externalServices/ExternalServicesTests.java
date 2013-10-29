@@ -24,8 +24,8 @@ public class ExternalServicesTests {
     private final String DATA_PROVIDER_ID = "DP_OAI";
     private final String DATA_SOURCE_ID = "DS_OAI";
     private final String DATA_SOURCE_DESCRIPTION = "DS_description";
-    private final String SOURCE_URL = "http://oai.bnf.fr/oai2/OAIHandler";
-    private final String SOURCE_SET = "gallica";
+    private final String SOURCE_URL = "http://bd1.inesc-id.pt:8080/repoxel";
+    private final String SOURCE_SET = "collection_X";
     private final String SOURCE_SCHEMA = "http://www.europeana.eu/schemas/ese/ESE-V3.3.xsd";
     private final String SOURCE_NAMESPACE = "http://www.europeana.eu/schemas/ese/";
     private final String SOURCE_METADATA_FORMAT = MetadataFormat.oai_dc.name();

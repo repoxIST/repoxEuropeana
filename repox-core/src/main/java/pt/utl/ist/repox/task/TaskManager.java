@@ -300,7 +300,7 @@ public class TaskManager implements RunnableStoppable {
         }
     }
 
-    private void runDataSourcesRecordCount(GregorianCalendar now) {
+    private  void runDataSourcesRecordCount(GregorianCalendar now) {
         try {
             RecordCountManager recordCountManager = ConfigSingleton.getRepoxContextUtil().getRepoxManager().getRecordCountManager();
             if(recordCountManager.isTimeForFullCount(now)) {

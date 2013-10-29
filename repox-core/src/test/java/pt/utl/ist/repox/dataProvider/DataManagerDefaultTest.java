@@ -28,7 +28,7 @@ import java.util.Properties;
 public class DataManagerDefaultTest {
     private final String OUTPUT_CONFIGURATION_FILE_NAME = RepoxContextUtilDefault.DATA_PROVIDERS_FILENAME;
     private final String OUTPUT_CONFIGURATION_FILE_NAME_ALT = "dataProviders.temp.xml";
-    public static final String CONFIG_FILE = "configuration.properties";
+    public static final String TEST_CONFIG_FILE = "Test-configuration.properties";
 
     private File configurationFile;
     private File configurationFileAlt;
@@ -42,7 +42,7 @@ public class DataManagerDefaultTest {
             MetadataTransformationManager transformationManager = ConfigSingleton.getRepoxContextUtil().getRepoxManagerTest().getMetadataTransformationManager();
             MetadataSchemaManager metadataSchemaManager = ConfigSingleton.getRepoxContextUtil().getRepoxManagerTest().getMetadataSchemaManager();
 
-            Properties configurationProperties = PropertyUtil.loadCorrectedConfiguration(CONFIG_FILE);
+            Properties configurationProperties = PropertyUtil.loadCorrectedConfiguration(TEST_CONFIG_FILE);
             configurationDefault = new RepoxConfigurationDefault(configurationProperties);
 
             File oldTasksFile = new File(ConfigSingleton.getRepoxContextUtil().getRepoxManagerTest().getConfiguration().getXmlConfigPath(), RepoxContextUtilDefault.OLD_TASKS_FILENAME);

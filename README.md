@@ -3,7 +3,7 @@ repoxEuropeana
 
 REPOX Europeana
 
-To configure REPOX some parameters must be set on the "configurations.properties" file under "repox-core\src\main\resources":
+1 - To configure REPOX some parameters must be set on the "configurations.properties" file under "repox-core\src\main\resources":
 
 # Directory of the REPOX Repository (XML files)
 repository.dir C:/repoxdata/repository
@@ -23,6 +23,7 @@ smtp.server smtp.gmail.com
 default.email mail@gmail.com
 administrator.email.pass zzzz
 smtp.port 465
+useMailSSLAuthentication = true
 
 Derby Database:
 database.driverClassName org.apache.derby.jdbc.EmbeddedDriver
@@ -36,16 +37,27 @@ database.url jdbc:postgresql://localhost/exampledb
 database.user postgres
 database.password postgres
 
+exportDefaultFolder= C:/Default_EXPORT_FOLDER
+
+ldapHost =
+ldapUserPrefix = 
+ldapLoginDN = 
+
+sendEmailAfterIngest = false
+useOAINamespace = false
+
+2 - Also set these properties for "Test-configuration.properties" under "repox-gui\src\test\resources".
+
 ==================================================================================================
 Additional Information:
 
-Configuration file imported through classpath (configuration. properties and log4j.properties):
+1 - Configuration file imported through classpath (configuration. properties and log4j.properties):
 
-When initiation the tomcat/jetty server, add the following arguments to the JVM classpath:
+2 - When initiation the tomcat/jetty server, add the following arguments to the JVM classpath:
 	-Drepox.data.dir=/home/conf
 		The argument represents the folder where the configuration.properties is stored
 	-Drepox.log4j.configuration=file:///home/conf/log4j.properties
 		The argument represents the location of the log4j.properties file
 		
-Configure REPOX External Services: https://docs.google.com/document/d/1XkXJA8HRFzIGXaWYIQ3xJ1aSvKaDsl0lLnXidKkNMRg/edit?usp=sharing
+3 - Configure REPOX External Services: https://docs.google.com/document/d/1XkXJA8HRFzIGXaWYIQ3xJ1aSvKaDsl0lLnXidKkNMRg/edit?usp=sharing
 REPOX REST architecture details: https://docs.google.com/spreadsheet/ccc?key=0As_Z9E2rQwrWdHJDb3V5WmREUmY3b2FCajVSNERPaUE&usp=sharing
